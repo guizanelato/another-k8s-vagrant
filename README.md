@@ -30,7 +30,7 @@ máquinas virtuais.
 
 Para otimizar o processo de instalação e configuração, utilizamos a ferramenta
 [Vagrant](https://vagrantup.com) para gerenciar as imagens de linux
-no caso optamos pelo uso do  Debian 10), e no que se refere  a etapa de preparação do cluster, criamos alguns scripts de automação em shell para resolver os pré requisitos.
+(no caso optamos pelo uso da distribuição  Debian 10), e no que se refere  a etapa de preparação do cluster, criamos alguns scripts de automação em shell para resolver os pré requisitos.
 
 ## Subindo sua infraestrutura local
 
@@ -172,10 +172,11 @@ A primeira saída do `kubeadm` também nos indicou o comando para adicionar nós
 Basta acessar os nós `worker-01` e `worker-02` e realizar o mesmo procedimento que foi feito na configuração de nós de gerenciamento:
 
 ```
-## worke-01
-# na máquina host
+#worker-01
+#na máquina host
 vagrant ssh worker-01
 ```
+
 
 ```
 sudo kubeadm join 172.20.12.100:6443 --token 2vjyq3.aaepezlc9szigtcp \
@@ -184,8 +185,8 @@ sudo kubeadm join 172.20.12.100:6443 --token 2vjyq3.aaepezlc9szigtcp \
 ```
 
 ```
-## worker-02
-# na máquina host
+#worker-02
+#na máquina host
 vagrant ssh worker-02
 
 ```
