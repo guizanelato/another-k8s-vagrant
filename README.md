@@ -101,8 +101,9 @@ pois ela contém os comandos de ingresso de outros nós para o seu clustes.
 Depois desse setup inicial, copie o arquivo de configuração de acesso do kubernetes para a pasta do usuário vagrant: 
 
 ```
-sudo mkdir -p /home/vagrant/.kube
-cp /etc/kubernetes/admin.conf /home/vagrant/.kube/config
+mkdir -p /home/vagrant/.kube
+sudo cp /etc/kubernetes/admin.conf /home/vagrant/.kube/config
+sudo chown vagrant: -R /home/vagrant/.kube
 ```
 
 Assim você poderá executar comandos no cluster através do `kubectl` com seu usuário padrão do vagrant:
@@ -172,8 +173,6 @@ A primeira saída do `kubeadm` também nos indicou o comando para adicionar nós
 Basta acessar os nós `worker-01` e `worker-02` e realizar o mesmo procedimento que foi feito na configuração de nós de gerenciamento:
 
 ```
-#worker-01
-#na máquina host
 vagrant ssh worker-01
 ```
 
